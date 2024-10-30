@@ -10,6 +10,7 @@ class PracticeFormTests extends TestBase {
     @Test
     void fullFieldsTest() {
         practiceFormPage.openPage()
+                .removeBanners()
                 .setFirstName("FirstName")
                 .setLastName("LastName")
                 .setEmail("test@test.com")

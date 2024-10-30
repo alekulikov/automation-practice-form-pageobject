@@ -6,7 +6,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class TextBoxPage extends DemoqaBasePage {
+public class TextBoxPage {
 
     private final SelenideElement userNameInput = $("#userName"),
             userEmailInput = $("#userEmail"),

@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class PracticeFormPage extends DemoqaBasePage {
+public class PracticeFormPage {
     private SelenideElement firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             userEmailInput = $("#userEmail"),
@@ -29,7 +29,13 @@ public class PracticeFormPage extends DemoqaBasePage {
     public PracticeFormPage openPage() {
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-        removeBanners();
+
+        return this;
+    }
+
+    public PracticeFormPage removeBanners() {
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
 
         return this;
     }
@@ -110,6 +116,7 @@ public class PracticeFormPage extends DemoqaBasePage {
     }
 
     public PracticeFormPage submit() {
+        submitButton.scrollTo();
         submitButton.click();
 
         return this;
